@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import User from "../components/User.jsx";
 
 export default function UpdatePage() {
   const { id } = useParams();
@@ -20,8 +21,11 @@ export default function UpdatePage() {
     <div id="user-page" className="page">
       <div className="container">
         <h1>{user.name}</h1>
-        <p>User Id: {id}</p>
-        {/* Display user details here */}
+        <User user={user} />
+        <div className="btns">
+          <button className="btn-cancel">Delete User</button>
+          <button>Update User</button>
+        </div>
       </div>
     </div>
   );
