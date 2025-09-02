@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import User from "../components/User.jsx";
+import { useParams, useNavigate } from "react-router";
+import User from "../components/User";
 
 export default function UpdatePage() {
   const { id } = useParams();
