@@ -5,6 +5,7 @@ import User from "../components/User.jsx";
 export default function UpdatePage() {
   const { id } = useParams();
   const [user, setUser] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     const data = localStorage.getItem("users"); // get the existing users from local storage
@@ -17,14 +18,20 @@ export default function UpdatePage() {
   // Fetch user data based on ID
   // Example: const user = getUserById(id);
 
+  function showUpdate() {
+    navigate(`/users/${id}/update`);
+  }
+
   return (
     <div id="user-page" className="page">
       <div className="container">
         <h1>{user.name}</h1>
         <User user={user} />
         <div className="btns">
-          <button className="btn-cancel">Delete User</button>
-          <button>Update User</button>
+          <button className="btn-cancel" onClick={showDeleteDialog}>
+            Delete User
+          </button>
+          <button onClick={showUpdate}>Update User</button>
         </div>
       </div>
     </div>

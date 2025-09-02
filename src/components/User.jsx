@@ -6,12 +6,12 @@ export default function User({ user }) {
 
   function handleClick() {
     navigate(`/users/${user.id}`);
+  }
 
-    // get the initials - get the part before the @ symbol in the mail
-    function getInitials() {
-      const initials = user.mail.split("@")[0];
-      return initials;
-    }
+  // get the initials - get the part before the @ symbol in the mail
+  function getInitials() {
+    const initials = user.mail?.split("@")[0];
+    return initials;
   }
 
   return (
@@ -23,11 +23,15 @@ export default function User({ user }) {
         alt={user.name}
       />
       <h2>
-        {user.name} ({getInitials()})
+        {user.name} ({user.mail ? getInitials() : "No initials"})
       </h2>
-      <p className="title">{user.title}</p>
+      <p className="title">{user.title ? user.title : "Unknown Title"}</p>
       <p>
-        <a href={`mailto:${user.email}`}>{user.mail}</a>
+        {user.mail ? (
+          <a href={`mailto:${user.mail}`}>{user.mail}</a>
+        ) : (
+          "No email"
+        )}
       </p>
     </article>
   );
