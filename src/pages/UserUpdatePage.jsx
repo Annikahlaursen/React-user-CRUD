@@ -16,8 +16,8 @@ export default function UpdatePage() {
     const user = usersData.find((user) => user.id === id); // find the user with the matching id
     setName(user.name);
     setTitle(user.title);
-    useMail(user.mail);
-    useImage(user.image);
+    setMail(user.mail);
+    setImage(user.image);
   }, [id]); // ID VERY IMPORTANT TO HAVE IN THE DEPENDENCY ARRAY
 
   function updateUser(event) {

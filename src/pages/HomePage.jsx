@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import User from "../components/User";
+import { useNavigate } from "react-router";
 
 export default function HomePage() {
   const [users, setUsers] = useState([]);
